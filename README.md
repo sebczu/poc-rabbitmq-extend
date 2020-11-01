@@ -14,8 +14,15 @@ username: admin
 password: test
 ```
 
-#### 2. Build service
+#### 3. Build service
 ```bash
 mvn clean install
 ```
 
+#### 4. Queue test
+
+
+#### 5. Fanout test
+
+
+#### 5. Direct test

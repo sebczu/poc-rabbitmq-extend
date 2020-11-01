@@ -40,8 +40,9 @@ public class ExchangeFanoutConfiguration {
 
   //dynamic listener
   @Bean
-  public MessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory, ExchangeFanoutListener exchangeFanoutListener) {
+  public MessageListenerContainer fanoutMessageListenerContainer(ConnectionFactory connectionFactory, ExchangeFanoutListener exchangeFanoutListener) {
     SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
+    simpleMessageListenerContainer.setListenerId("fanout-listener");
     simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
     simpleMessageListenerContainer.setQueues(queueFanout());
     simpleMessageListenerContainer.setMessageListener(exchangeFanoutListener);
