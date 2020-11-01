@@ -32,12 +32,13 @@ public class ExchangeFanoutConfiguration {
   }
 
   @Bean
-  public Declarables fanoutBinding() {
+  public Declarables bindingFanout() {
     return new Declarables(
         BindingBuilder.bind(queueFanout()).to(exchangeFanout())
     );
   }
 
+  //dynamic listener
   @Bean
   public MessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory, ExchangeFanoutListener exchangeFanoutListener) {
     SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
