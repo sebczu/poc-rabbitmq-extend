@@ -27,7 +27,7 @@ public abstract class RabbitmqClientApplicationTest {
     public void initialize(ConfigurableApplicationContext applicationContext) {
       log.info("context init");
       RabbitMQContainer rabbitMQContainer = new RabbitMQContainer("rabbitmq:3.8.9-management")
-          .withExposedPorts(5672, 15672)
+          .withExposedPorts(5672)
           .withUser("admin", "test")
           .withPermission("/", "admin", ".*", ".*", ".*");
 

@@ -13,7 +13,7 @@ public class QueueControllerTest extends RabbitmqClientApplicationTest {
   private static final String QUEUE_MESSAGE_NAME = "queue-message";
 
   @Test
-  public void shouldSendMessageIntoMessageBroker() throws Exception {
+  public void shouldSendMessageIntoQueue() throws Exception {
     String message = "test";
 
     mockMvc.perform(post("/queue")
