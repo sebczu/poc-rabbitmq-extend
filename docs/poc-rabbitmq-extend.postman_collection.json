@@ -53,6 +53,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "exchange-direct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/exchange/direct?routing=test&message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"direct"
+					],
+					"query": [
+						{
+							"key": "routing",
+							"value": "test"
+						},
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}

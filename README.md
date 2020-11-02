@@ -20,9 +20,19 @@ mvn clean install
 ```
 
 #### 4. Queue test
-
+run single instance service-client and multiple instances service-server
+```bash
+curl --request POST 'localhost:8080/queue?message=example'
+```
 
 #### 5. Fanout test
-
+run single instance service-client and multiple instances service-server
+```bash
+curl --request POST 'localhost:8080/exchange/fanout?message=example'
+```
 
 #### 5. Direct test
+run single instance service-client and multiple instances service-server
+```bash
+curl --request POST 'localhost:8080/exchange/direct?routing=test&message=example'
+```
