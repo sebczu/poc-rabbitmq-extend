@@ -10,26 +10,30 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class ExchangeFanoutControllerTest extends RabbitmqClientApplicationTest {
+public class ExchangeDirectControllerTest extends RabbitmqClientApplicationTest {
 
   private static final String QUEUE_NAME_1 = "queue-1";
   private static final String QUEUE_NAME_2 = "queue-2";
   private static final String QUEUE_NAME_3 = "queue-3";
+  private static final String QUEUE_NAME_4 = "queue-4";
 
   @Autowired
   private AmqpAdmin admin;
 
   @Test
-  public void shouldSendMessageIntoExchangeFanout() throws Exception {
+  public void shouldSendMessageIntoExchangeDirect() throws Exception {
     admin.declareQueue(queue1());
     admin.declareQueue(queue2());
     admin.declareQueue(queue3());
-    admin.declareBinding(BindingBuilder.bind(queue1()).to(exchange()));
-    admin.declareBinding(BindingBuilder.bind(queue2()).to(exchange()));
+    admin.declareQueue(queue4());
+    admin.declareBinding(BindingBuilder.bind(queue1()).to(exchange()).with("route"));
+    admin.declareBinding(BindingBuilder.bind(queue2()).to(exchange()).with("route"));
+    admin.declareBinding(BindingBuilder.bind(queue3()).to(exchange()).with("routeInvalid"));
 
     String message = "test";
 
-    mockMvc.perform(post("/exchange/fanout")
+    mockMvc.perform(post("/exchange/direct")
+        .param("routing", "route")
         .param("message", message))
         .andDo(print())
         .andExpect(status().isOk())
@@ -47,8 +51,14 @@ public class ExchangeFanoutControllerTest extends RabbitmqClientApplicationTest 
 
     Object messageResultQueue3 = rabbitTemplate.receiveAndConvert(QUEUE_NAME_3);
 
-    //queue not binding to exchange
+    //different routing
     assertThat(messageResultQueue3)
+        .isNull();
+
+    Object messageResultQueue4 = rabbitTemplate.receiveAndConvert(QUEUE_NAME_4);
+
+    //queue not binding to exchange
+    assertThat(messageResultQueue4)
         .isNull();
   }
 
@@ -64,8 +74,12 @@ public class ExchangeFanoutControllerTest extends RabbitmqClientApplicationTest 
     return new Queue(QUEUE_NAME_3, false, true, true);
   }
 
-  public FanoutExchange exchange() {
-    return new FanoutExchange("exchange-fanout");
+  public Queue queue4() {
+    return new Queue(QUEUE_NAME_4, false, true, true);
+  }
+
+  public DirectExchange exchange() {
+    return new DirectExchange("exchange-direct");
   }
 
 }
