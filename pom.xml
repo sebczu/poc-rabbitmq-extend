@@ -21,8 +21,8 @@
   </properties>
 
   <modules>
-    <module>service-client</module>
-    <module>service-server</module>
+    <module>service-publisher</module>
+    <module>service-consumer</module>
   </modules>
 
   <build>
