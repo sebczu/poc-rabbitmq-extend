@@ -1,6 +1,6 @@
 package com.sebczu.poc.rabbitmq.extend.consumer.configuration;
 
-import com.sebczu.poc.rabbitmq.extend.consumer.listener.ExchangeFanoutListener;
+import com.sebczu.poc.rabbitmq.extend.consumer.listener.ExchangeDirectListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -38,12 +38,12 @@ public class ExchangeDirectConfiguration {
 
   //dynamic listener
   @Bean
-  public MessageListenerContainer directMessageListenerContainer(ConnectionFactory connectionFactory, ExchangeFanoutListener exchangeFanoutListener) {
+  public MessageListenerContainer directMessageListenerContainer(ConnectionFactory connectionFactory, ExchangeDirectListener exchangeDirectListener) {
     SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
     simpleMessageListenerContainer.setListenerId("direct-listener");
     simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
     simpleMessageListenerContainer.setQueues(queueDirect());
-    simpleMessageListenerContainer.setMessageListener(exchangeFanoutListener);
+    simpleMessageListenerContainer.setMessageListener(exchangeDirectListener);
     return simpleMessageListenerContainer;
   }
 }

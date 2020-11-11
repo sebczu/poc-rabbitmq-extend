@@ -36,3 +36,10 @@ run single instance service-publisher and multiple instances service-consumer
 ```bash
 curl --request POST 'localhost:8080/exchange/direct?routing=test&message=example'
 ```
+
+#### 5. Topic test
+run single instance service-publisher and multiple instances service-consumer
+```bash
+curl --request POST 'localhost:8080/exchange/topic?routing=test.1&message=example'
+curl --request POST 'localhost:8080/exchange/topic?routing=test.2&message=example'
+```
