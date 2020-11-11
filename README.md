@@ -51,3 +51,9 @@ curl --request POST 'localhost:8080/exchange/header?userType=any&message=example
 curl --request POST 'localhost:8080/exchange/header?userType=admin&message=example'
 curl --request POST 'localhost:8080/exchange/header?userType=simple&message=example'
 ```
+
+#### 7. Ack test
+run single instance service-publisher and multiple instances service-consumer
+```bash
+curl --request POST 'localhost:8080/queue/ack?message=example'
+```
