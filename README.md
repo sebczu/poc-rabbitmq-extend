@@ -1,5 +1,5 @@
 ### **POC-R2DBC**
-**spring boot webflux + r2dbc + postgresql**
+**spring boot web + rabbitmq**
 
 #### 1. Run rabbitmq
 /docker
@@ -42,4 +42,12 @@ run single instance service-publisher and multiple instances service-consumer
 ```bash
 curl --request POST 'localhost:8080/exchange/topic?routing=test.1&message=example'
 curl --request POST 'localhost:8080/exchange/topic?routing=test.2&message=example'
+```
+
+#### 6. Header test
+run single instance service-publisher and multiple instances service-consumer
+```bash
+curl --request POST 'localhost:8080/exchange/header?userType=any&message=example'
+curl --request POST 'localhost:8080/exchange/header?userType=admin&message=example'
+curl --request POST 'localhost:8080/exchange/header?userType=simple&message=example'
 ```
