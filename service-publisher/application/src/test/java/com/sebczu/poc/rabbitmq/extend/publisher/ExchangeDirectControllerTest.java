@@ -60,6 +60,11 @@ public class ExchangeDirectControllerTest extends RabbitmqPublisherApplicationTe
     //queue not binding to exchange
     assertThat(messageResultQueue4)
         .isNull();
+
+    admin.deleteQueue(QUEUE_NAME_1);
+    admin.deleteQueue(QUEUE_NAME_2);
+    admin.deleteQueue(QUEUE_NAME_3);
+    admin.deleteQueue(QUEUE_NAME_4);
   }
 
   public Queue queue1() {

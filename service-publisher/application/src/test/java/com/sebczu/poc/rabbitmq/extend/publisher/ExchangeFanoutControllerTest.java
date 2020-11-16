@@ -50,6 +50,10 @@ public class ExchangeFanoutControllerTest extends RabbitmqPublisherApplicationTe
     //queue not binding to exchange
     assertThat(messageResultQueue3)
         .isNull();
+
+    admin.deleteQueue(QUEUE_NAME_1);
+    admin.deleteQueue(QUEUE_NAME_2);
+    admin.deleteQueue(QUEUE_NAME_3);
   }
 
   public Queue queue1() {

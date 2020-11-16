@@ -60,6 +60,11 @@ public class ExchangeHeaderControllerTest extends RabbitmqPublisherApplicationTe
     //queue not binding to exchange
     assertThat(messageResultQueue4)
         .isNull();
+
+    admin.deleteQueue(QUEUE_NAME_1);
+    admin.deleteQueue(QUEUE_NAME_2);
+    admin.deleteQueue(QUEUE_NAME_3);
+    admin.deleteQueue(QUEUE_NAME_4);
   }
 
   @Test
@@ -87,6 +92,9 @@ public class ExchangeHeaderControllerTest extends RabbitmqPublisherApplicationTe
     assertThat(messageResultQueue2)
         .isNotNull()
         .isEqualTo(message);
+
+    admin.deleteQueue(QUEUE_NAME_1);
+    admin.deleteQueue(QUEUE_NAME_2);
   }
 
   @Test
@@ -113,6 +121,9 @@ public class ExchangeHeaderControllerTest extends RabbitmqPublisherApplicationTe
     Object messageResultQueue2 = rabbitTemplate.receiveAndConvert(QUEUE_NAME_2);
     assertThat(messageResultQueue2)
         .isNull();
+
+    admin.deleteQueue(QUEUE_NAME_1);
+    admin.deleteQueue(QUEUE_NAME_2);
   }
 
   public Queue queue1() {
