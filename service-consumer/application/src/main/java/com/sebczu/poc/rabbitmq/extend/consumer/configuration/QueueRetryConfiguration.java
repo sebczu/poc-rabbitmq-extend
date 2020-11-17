@@ -17,7 +17,7 @@ public class QueueRetryConfiguration {
   public RetryOperationsInterceptor retryInterceptor() {
     return RetryInterceptorBuilder.stateless()
         .backOffOptions(1000, 2.0, 10000)
-        .maxAttempts(5)
+        .maxAttempts(4)
         .build();
   }
 
