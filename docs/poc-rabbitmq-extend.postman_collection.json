@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2c8f8e7b-e7c0-4219-96c0-2a8d4b2afb8f",
+		"_postman_id": "3dd39297-c34e-40cc-a798-fbc884d9a060",
 		"name": "poc-rabbitmq-extend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -142,7 +142,7 @@
 			"response": []
 		},
 		{
-			"name": "queue-ack-message",
+			"name": "queue-ack",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -155,6 +155,81 @@
 					"path": [
 						"queue",
 						"ack"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queue-longprocess",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/longprocess?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"longprocess"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queue-none-ack",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/noneack?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"noneack"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queue-retry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/retry?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"retry"
 					],
 					"query": [
 						{
