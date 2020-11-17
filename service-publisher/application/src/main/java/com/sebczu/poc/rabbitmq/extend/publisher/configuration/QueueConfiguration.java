@@ -1,13 +1,13 @@
-package com.sebczu.poc.rabbitmq.extend.consumer.configuration;
+package com.sebczu.poc.rabbitmq.extend.publisher.configuration;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class QueueMessageConfiguration {
+public class QueueConfiguration {
 
-  public static final String QUEUE_MESSAGE_NAME = "queue-message";
+  private static final String QUEUE_MESSAGE_NAME = "queue-message";
 
   @Bean
   public Queue queueMessage() {

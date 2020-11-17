@@ -5,13 +5,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class QueueMessageConfiguration {
+public class QueueNoneAckConfiguration {
 
-  private static final String QUEUE_MESSAGE_NAME = "queue-message";
+  private static final String QUEUE_NAME = "queue-none-ack";
 
   @Bean
-  public Queue queueMessage() {
-    return new Queue(QUEUE_MESSAGE_NAME, false, false, true);
+  public Queue queueNoneAck() {
+    return new Queue(QUEUE_NAME, false, false, true);
   }
 
 }

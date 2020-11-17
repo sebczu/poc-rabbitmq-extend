@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/queue/ack")
+@RequestMapping("/queue/noneack")
 @RequiredArgsConstructor
-public class QueueAckController {
+public class QueueNoneAckController {
 
   private final RabbitTemplate rabbitTemplate;
-  private final Queue queueAck;
+  private final Queue queueNoneAck;
 
   @PostMapping
   public void sendToQueue(@RequestParam(value = "message") String message) {
-    rabbitTemplate.convertAndSend(queueAck.getName(), message);
-    log.info("message: {} send into queue: {}", message, queueAck.getName());
+    rabbitTemplate.convertAndSend(queueNoneAck.getName(), message);
+    log.info("message: {} send into queue: {}", message, queueNoneAck.getName());
   }
 
 }
