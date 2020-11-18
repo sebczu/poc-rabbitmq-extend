@@ -10,7 +10,7 @@ public class ExchangeDirectConfiguration {
   private static final String EXCHANGE_DIRECT_NAME = "exchange-direct";
 
   @Bean
-  public DirectExchange exchangeDirect() {
+  public DirectExchange directExchange() {
     return new DirectExchange(EXCHANGE_DIRECT_NAME);
   }
 
