@@ -10,12 +10,12 @@ public class QueueDeadLetterConfiguration {
 
   public static final String QUEUE_NAME = "queue-exception";
 
-  @Bean
-  public Queue queueDeadLetter() {
-    return QueueBuilder.nonDurable(QUEUE_NAME)
-        .autoDelete()
-        .deadLetterExchange("deadLetterExchange")
-        .deadLetterRoutingKey("deadLetter")
-        .build();
-  }
+//  @Bean
+//  public Queue queueDeadLetter() {
+//    return QueueBuilder.nonDurable(QUEUE_NAME)
+//        .autoDelete()
+//        .deadLetterExchange("deadLetterExchange")
+//        .deadLetterRoutingKey("deadLetter")
+//        .build();
+//  }
 }

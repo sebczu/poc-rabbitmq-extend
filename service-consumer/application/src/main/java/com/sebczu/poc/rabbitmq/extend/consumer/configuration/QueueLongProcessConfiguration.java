@@ -11,7 +11,7 @@ public class QueueLongProcessConfiguration {
 
   @Bean
   public Queue queueLongProcess() {
-    return new Queue(QUEUE_NAME, false, false, true);
+    return new Queue(QUEUE_NAME, true, false, true);
   }
 
 }

@@ -240,6 +240,56 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "queue-concurrent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/concurrent?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"concurrent"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queue-deadletter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/deadletter?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"deadletter"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
