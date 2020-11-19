@@ -6,8 +6,12 @@ services:
     image: rabbitmq:3.8.9-management
     hostname: hostrabbitmq
     ports:
+      # rabbitmq
       - "5672:5672"
+      # management: http://localhost:15672
       - "15672:15672"
+      # prometheus metrics: http://localhost:15692/metrics
+      - "15692:15692"
     environment:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: test

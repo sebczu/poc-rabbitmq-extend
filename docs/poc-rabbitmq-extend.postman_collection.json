@@ -290,6 +290,56 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "queue-ttl",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/ttl?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"ttl"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queue-max-length",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/maxlength?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"maxlength"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
