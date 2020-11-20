@@ -12,6 +12,7 @@ public class QueueDeadLetterListener implements MessageListener {
 
   @Override
   public void onMessage(Message message) {
+    log.info("message property: {}", message.getMessageProperties());
     log.info("message: {} receive from queue: {}", new String(message.getBody()), QueueDeadLetterConfiguration.QUEUE_NAME);
     throw new RuntimeException("queueDeadLetterListener exception");
   }

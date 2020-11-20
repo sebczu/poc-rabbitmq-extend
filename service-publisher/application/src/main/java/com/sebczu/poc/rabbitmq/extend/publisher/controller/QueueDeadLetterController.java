@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class QueueDeadLetterController {
 
   private final RabbitTemplate rabbitTemplate;
-//  private final Queue queueDeadLetter;
+  private final Queue exceptionQueue;
 
   @PostMapping
   public void sendToQueue(@RequestParam(value = "message") String message) {
-    rabbitTemplate.convertAndSend("queue-exception", message);
-    log.info("message: {} send into queue: {}", message, "queue-exception");
+    rabbitTemplate.convertAndSend(exceptionQueue.getName(), message);
+    log.info("message: {} send into queue: {}", message, exceptionQueue.getName());
   }
 
 }
