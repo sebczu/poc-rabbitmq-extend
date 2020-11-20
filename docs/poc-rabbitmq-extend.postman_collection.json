@@ -340,6 +340,81 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "queue-expired",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/expired?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"expired"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queue-manual",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/manual?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"manual"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queue-prefetch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/prefetch?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"prefetch"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
