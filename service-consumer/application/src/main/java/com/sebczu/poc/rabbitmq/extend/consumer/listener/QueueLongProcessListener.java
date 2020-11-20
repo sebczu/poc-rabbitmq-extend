@@ -16,7 +16,7 @@ public class QueueLongProcessListener {
     try {
       Thread.sleep(20000);
     } catch (InterruptedException e) {
-      e.printStackTrace();
+      log.error("interrupted", e);
     }
     log.info("send ack");
   }

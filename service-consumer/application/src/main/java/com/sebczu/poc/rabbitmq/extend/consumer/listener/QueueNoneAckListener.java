@@ -13,6 +13,11 @@ public class QueueNoneAckListener {
   @RabbitListener(queues = QueueNoneAckConfiguration.QUEUE_NAME, ackMode = "NONE")
   private void queueNoneAckListener(Message message) {
     log.info("message: {} receive from queue: {}", new String(message.getBody()), QueueNoneAckConfiguration.QUEUE_NAME);
+    try {
+      Thread.sleep(10000);
+    } catch (InterruptedException e) {
+      log.error("interrupted", e);
+    }
     throw new RuntimeException("queueNoneAckListener exception");
   }
 
