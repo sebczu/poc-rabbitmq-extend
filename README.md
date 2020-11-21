@@ -1,4 +1,4 @@
-### **POC-R2DBC**
+### **POC-RABBITMQ-EXTEND**
 **spring boot web + rabbitmq**
 
 #### 1. Run rabbitmq
