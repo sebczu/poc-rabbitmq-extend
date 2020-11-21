@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "queue-message",
+			"name": "queue",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -405,6 +405,31 @@
 					"path": [
 						"queue",
 						"prefetch"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queue-request-response",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/queue/requestresponse?message=example",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"queue",
+						"requestresponse"
 					],
 					"query": [
 						{
